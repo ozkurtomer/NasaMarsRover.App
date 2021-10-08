@@ -64,10 +64,10 @@ namespace NasaMarsNasaMarsRoverApp.UnitTest
         new object[] { new List<int> { 5, 5 }, Direction.N, 1, 2,"LMLMLMLMM",  "1 3 N"},
             new object[] { new List<int> { 5, 5 }, Direction.E, 3, 3, "MMRMMRMRRM", "5 1 E" }};
 
-
-
         #endregion
 
+
+        #region Theroies
         [Theory]
         [MemberData(nameof(NasaMarsRoverAtTheTopN))]
         public void DoesIsMoveable_ShouldNotMove_NasaMarsRoverAtTheTopNorth(int[] maxRange, Direction targetDirection, int xCoordinate, int yCoordinate, bool expected)
@@ -149,5 +149,6 @@ namespace NasaMarsNasaMarsRoverApp.UnitTest
             var result = $"{rover.X}{rover.Y}{rover.Target}";
             Assert.Equal(result, expected);
         }
+        #endregion
     }
 }

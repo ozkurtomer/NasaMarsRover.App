@@ -9,6 +9,7 @@ namespace NasaMarsRover.App
 {
     class Program
     {
+        #region Static Method
         static void Main(string[] args)
         {
             Console.WriteLine("How many Mars Rover? (e.g 3, default 1)");
@@ -39,7 +40,9 @@ namespace NasaMarsRover.App
             }
 
         }
+        #endregion
 
+        #region Methods
         public static Direction SetDirection(string item)
         {
             switch (item)
@@ -60,5 +63,6 @@ namespace NasaMarsRover.App
                     return Direction.Empty;
             }
         }
+        #endregion
     }
 }

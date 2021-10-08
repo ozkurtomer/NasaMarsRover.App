@@ -10,6 +10,7 @@ namespace NasaMarsRover.Bussiness.Concrete
 {
     public class MarsRover
     {
+        #region Constructor
         public MarsRover(Ground _ground, Direction _target, int _x, int _y)
         {
             Ground = _ground;
@@ -17,13 +18,16 @@ namespace NasaMarsRover.Bussiness.Concrete
             Y = _y;
             Target = _target;
         }
+        #endregion
 
+        #region Members
         public Direction Target { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public Ground Ground { get; set; }
+        #endregion
 
-
+        #region Methods
         public void Run(char[] directions)
         {
             foreach (var item in directions)
@@ -115,5 +119,6 @@ namespace NasaMarsRover.Bussiness.Concrete
                     break;
             }
         }
+        #endregion
     }
 }

@@ -9,6 +9,7 @@ namespace NasaMarsRover.Bussiness.Concrete
 {
     public class Ground
     {
+        #region Constructor
         public Ground(int[] range)
         {
             if (range.RangeIsNullOrEmpty())
@@ -17,8 +18,11 @@ namespace NasaMarsRover.Bussiness.Concrete
             Width = range[0];
             Height = range[1];
         }
+        #endregion
 
+        #region Members
         public static int Width { get; set; }
         public static int Height { get; set; }
+        #endregion
     }
 }

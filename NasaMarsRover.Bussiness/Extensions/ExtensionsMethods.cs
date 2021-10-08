@@ -9,6 +9,7 @@ namespace NasaMarsRover.Bussiness.Extensions
 {
     public static class ExtensionsMethods
     {
+        #region Extensions Methods
         public static Rotate CharToEnum(this char item)
         {
             switch (item)
@@ -43,5 +44,6 @@ namespace NasaMarsRover.Bussiness.Extensions
                 return 0;
             }
         }
+        #endregion
     }
 }
