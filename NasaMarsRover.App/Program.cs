@@ -1,6 +1,8 @@
 ﻿using NasaMarsRover.Bussiness.Concrete;
 using NasaMarsRover.Bussiness.Enums;
+using NasaMarsRover.Bussiness.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NasaMarsRover.App
@@ -9,15 +11,32 @@ namespace NasaMarsRover.App
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("How many Mars Rover? (e.g 3, default 1)");
+            var count = Console.ReadLine().TryToInt();
+            var marsRoverCount = count > 1 ? count : 1;
+
+            List<char[]> roads = new List<char[]>();
+            List<MarsRover> roverList = new List<MarsRover>();
+
+            Console.WriteLine("Ground size (e.g '5 5') : ");
             var maxPoints = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToArray();
-            var startPositions = Console.ReadLine().Trim().Split(' ');
+            Ground ground = new Ground(maxPoints);
 
-            Direction firstDirection = SetDirection(startPositions[2]);
+            for (int i = 0; i < marsRoverCount; i++)
+            {
+                Console.WriteLine($"{i + 1} Mars Rover Start position (e.g '1 2 N') : ");
+                var startPositions = Console.ReadLine().Trim().Split(' ');
+                Direction direction = SetDirection(startPositions[2]);
+                roverList.Add(new MarsRover(ground, direction, Convert.ToInt32(startPositions[0]), Convert.ToInt32(startPositions[1])));
 
-            Ground firstGround = new Ground(maxPoints);
-            MarsRover firstMarsRover = new MarsRover(firstGround, firstDirection,Convert.ToInt32(startPositions[0]), Convert.ToInt32(startPositions[1]));
-            var firstMarsRoverRoad = Console.ReadLine().Trim().ToArray();
-            firstMarsRover.Run(firstMarsRoverRoad);
+                Console.Write($"{i + 1} Mars Rover Road (e.g 'LMLMLMLMM') : ");
+                roads.Add(Console.ReadLine().Trim().ToArray());
+            }
+
+            for (int i = 0; i < roverList.Count; i++)
+            {
+                roverList[i].Run(roads[i]);
+            }
 
         }
 

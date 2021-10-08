@@ -31,5 +31,17 @@ namespace NasaMarsRover.Bussiness.Extensions
         {
             return ranges == null || ranges.Length == 0;
         }
+
+        public static int TryToInt(this object number)
+        {
+            try
+            {
+                return Convert.ToInt32(number);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

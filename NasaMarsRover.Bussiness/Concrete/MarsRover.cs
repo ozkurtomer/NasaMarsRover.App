@@ -50,7 +50,7 @@ namespace NasaMarsRover.Bussiness.Concrete
                 }
             }
 
-            Console.WriteLine($"{X} {Y} {Target}");
+            Console.WriteLine($"Expected Output : {X} {Y} {Target}");
         }
 
         private void Move()
