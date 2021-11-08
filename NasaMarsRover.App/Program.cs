@@ -12,6 +12,7 @@ namespace NasaMarsRover.App
         #region Static Method
         static void Main(string[] args)
         {
+            Console.WriteLine("asdasdasd");
             Console.WriteLine("How many Mars Rover? (e.g 3, default 1)");
             var count = Console.ReadLine().TryToInt();
             var marsRoverCount = count > 1 ? count : 1;
